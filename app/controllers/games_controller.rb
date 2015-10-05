@@ -6,10 +6,9 @@ class GamesController < ActionController::API
   end
 
   def check
-    row = params[:row].to_i
-    col = params[:col].to_i
-    @game.check(row, col)
-    @game.update(board: @game.board)
+    @game = Game.find(params[:id])
+    @game.check(params[:row].to_i, params[:col].to_i)
+    @game.save
     render json: @game.as_json
   end
 

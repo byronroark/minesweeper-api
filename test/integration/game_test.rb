@@ -116,7 +116,6 @@ class GamesTest < ActionDispatch::IntegrationTest
   end
 
   test "winning" do
-    skip
     all_spaces = []
     8.times{ |row| 8.times { |col| all_spaces << [row,col] } }
 
