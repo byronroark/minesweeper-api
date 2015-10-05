@@ -1,5 +1,5 @@
 class GamesController < ActionController::API
-  before_action :set_game, only: [:show, :check]
+  before_action :set_game, only: [:show, :check, :flag]
 
   def show
     render json: @game.as_json
@@ -11,6 +11,13 @@ class GamesController < ActionController::API
     @game.check(row, col)
     @game.update(board: @game.board)
     render json: @game.as_json
+  end
+
+  def flag
+    @game = Game.find(params[:id])
+    @game.flag(params[:row].to_i, params[:col].to_i)
+    @game.save
+    render json: @game
   end
 
   def create

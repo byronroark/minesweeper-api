@@ -101,7 +101,6 @@ class GamesTest < ActionDispatch::IntegrationTest
   end
 
   test "flagging a square" do
-    skip
     post '/games', params: {difficulty: 0}
     json = JSON.parse(response.body)
     board_id = json["id"]
