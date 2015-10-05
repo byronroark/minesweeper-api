@@ -3,7 +3,6 @@ require 'minitest/mock'
 
 class GamesTest < ActionDispatch::IntegrationTest
   test "new game returns the correct response code" do
-    skip
     post '/games', params: { difficulty: 0 }
 
     assert_response 201
